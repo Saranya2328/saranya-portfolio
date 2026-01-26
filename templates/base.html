@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ name }} | Portfolio</title>
+
+    <!-- IMPORTANT for responsiveness -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="nav-brand">{{ name }}</div>
+    <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- HERO / HEADER -->
+<header class="hero">
+    <div class="hero-content">
+
+        <!-- Profile Image -->
+        <div class="hero-image">
+            <img src="{{ url_for('static', filename='images/Profile.jpg') }}" alt="Profile">
+        </div>
+
+        <!-- Text Content -->
+        <div class="hero-text">
+            <h1>Hello, I’m <span>{{ name }}</span></h1>
+            <p class="role">{{ title }}</p>
+
+            <div class="links">
+                <a href="{{ github }}" target="_blank">GitHub</a>
+                <a href="{{ linkedin }}" target="_blank">LinkedIn</a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to={{ email }}" target="_blank">
+    Gmail
+</a>
+</div>
+
+            <!-- Resume button INSIDE hero -->
+            <a class="resume-btn"
+               href="{{ url_for('static', filename='files/Saranya_Resume.pdf') }}"
+               target="_blank">
+                View Resume
+            </a>
+        </div>
+
+    </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+</body>
+</html>
