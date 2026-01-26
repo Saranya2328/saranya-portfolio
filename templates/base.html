@@ -14,30 +14,19 @@
 <!-- NAVBAR -->
 <nav class="navbar">
     <div class="nav-brand">{{ name }}</div>
-    <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
+
+    <!-- HAMBURGER (mobile only) -->
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <!-- SINGLE NAV MENU (desktop + mobile) -->
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#about" onclick="toggleMenu()">About</a></li>
+        <li><a href="#skills" onclick="toggleMenu()">Skills</a></li>
+        <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+        <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+        <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
     </ul>
 </nav>
-
-<div class="menu-toggle" onclick="toggleMenu()">☰</div>
-<div class="nav-links" id="navLinks">
-  <a href="#about">About</a>
-  <a href="#skills">Skills</a>
-  <a href="#experience">Experience</a>
-  <a href="#projects">Projects</a>
-  <a href="#contact">Contact</a>
-</div>
-<script>
-  function toggleMenu() {
-    document.getElementById("navLinks").classList.toggle("show");
-  }
-</script>
-
-
 
 <!-- HERO / HEADER -->
 <header class="hero">
@@ -57,11 +46,11 @@
                 <a href="{{ github }}" target="_blank">GitHub</a>
                 <a href="{{ linkedin }}" target="_blank">LinkedIn</a>
                 <a href="https://mail.google.com/mail/?view=cm&fs=1&to={{ email }}" target="_blank">
-    Gmail
-</a>
-</div>
+                    Gmail
+                </a>
+            </div>
 
-            <!-- Resume button INSIDE hero -->
+            <!-- Resume button -->
             <a class="resume-btn"
                href="{{ url_for('static', filename='files/Saranya_Resume.pdf') }}"
                target="_blank">
@@ -76,6 +65,13 @@
 <main>
     {% block content %}{% endblock %}
 </main>
+
+<!-- MOBILE MENU SCRIPT -->
+<script>
+  function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("show");
+  }
+</script>
 
 </body>
 </html>
